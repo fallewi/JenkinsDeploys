@@ -2,7 +2,7 @@ pipeline {
 environment {
 DOCKER_ID = "fallewi"
 DOCKER_IMAGE = "app"
-DOCKER_TAG = "v2.0"
+DOCKER_TAG = "v2.1"
 }
 agent any
 stages {
