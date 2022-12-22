@@ -63,6 +63,30 @@ docker push $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG
 }
 
 }
+
+stage('Deploiement sur k8s'){
+environment
+{
+
+KUBECONFIG = credentials("config")
+
+}
+
+steps {
+
+script {
+sh '''
+rm -Rf .kube
+mkdir .kube
+cat $KUBECONFIG > .kube/config
+kubectl run nginx --image=nginx
+'''
+}
+}
+
+}
+
+
 }
 
 }
