@@ -83,7 +83,7 @@ cat $KUBECONFIG > .kube/config
 cp app/values.yaml values.yml
 cat values.yml
 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-helm upgrade --install app app/ --values=values.yml 
+helm upgrade --install app app/ --values=values.yml --namespace jenkins-gratuit
 '''
 }
 }
