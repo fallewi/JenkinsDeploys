@@ -78,6 +78,7 @@ script {
 sh '''
 rm -Rf .kube
 mkdir .kube
+ls
 cat $KUBECONFIG > .kube/config
 cp app/values.yml values.yml
 cat values.yml
