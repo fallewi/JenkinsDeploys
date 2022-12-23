@@ -79,10 +79,10 @@ sh '''
 rm -Rf .kube
 mkdir .kube
 cat $KUBECONFIG > .kube/config
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-kubectl run nginx --image=nginx
+cp app/values.yml values.yml
+cat values.yml
+sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
+helm upgrade --install app app/ --values=values.yml 
 '''
 }
 }
