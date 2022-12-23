@@ -80,7 +80,7 @@ rm -Rf .kube
 mkdir .kube
 ls
 cat $KUBECONFIG > .kube/config
-cp app/values.yml values.yml
+cp app/values.yaml values.yml
 cat values.yml
 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
 helm upgrade --install app app/ --values=values.yml 
