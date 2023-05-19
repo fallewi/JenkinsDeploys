@@ -38,7 +38,7 @@ steps {
 
 script {
 sh '''
-curl localhost | grep -i "BIENVENUE SUR JENKINS EAZYTRAINING"
+curl localhost | grep -i "BIENVENUE SUR JENKINS DATASCIENTEST"
 '''
 }
 }
